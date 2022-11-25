@@ -41,7 +41,7 @@ User.getAll = (name, result) => {
     let query = "SELECT * FROM user";
 
     if (name){
-        query += `WHERE name like '%${name}%'`;
+        query += ` WHERE name like '%${name}%'`;
     }
 
     sql.query(query, (err, res) => {
@@ -57,8 +57,8 @@ User.getAll = (name, result) => {
 
 User.updateById = (id, user, result) => {
     sql.query(
-        "UPDATE user SET name = ?, email = ?, gender = ? where id ?",
-        [user.name, user.email, user.gender],
+        "UPDATE user SET name = ?, email = ?, gender = ? where id = ?",
+        [user.name, user.email, user.gender, id],
         (err, res) => {
             if (err){
                 console.log("error :",err);

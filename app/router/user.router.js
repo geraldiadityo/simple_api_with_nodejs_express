@@ -3,15 +3,15 @@ module.exports = app => {
 
     let router = require("express").Router();
     
-    router.post("user/",users.create);
+    router.post("/",users.create);
 
-    router.get("user/",users.findAll);
+    router.get("/",users.findAll);
 
-    router.get("user/:id",users.findOne);
+    router.get("/:id",users.findOne);
 
-    router.put("user/:id",users.update);
+    router.put("/:id",users.update);
 
-    router.delete("user/:id",users.delete);
+    router.delete("/:id",users.delete);
 
-    app.use("/api/",router);
+    app.use("/api/user",router);
 };

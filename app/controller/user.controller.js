@@ -26,7 +26,8 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    User.getAll((err, data) => {
+    const name = req.query.name;
+    User.getAll(name,(err, data) => {
         if (err){
             res.status(500).send({
                 message: err.message || "Some error occured while retrieving users."
